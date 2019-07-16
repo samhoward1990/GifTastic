@@ -8,4 +8,8 @@ function createAnimalButtons() {
         $("#animal-buttons-display").append(newButton);
     }
 }
+function addAnAnimal() {
+    userInput = $("#new-animal-input").val();
+
+}
 createAnimalButtons();

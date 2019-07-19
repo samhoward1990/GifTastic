@@ -5,15 +5,23 @@ function createAnimalButtons() {
     for (var i = 0; i < animals.length; i++) {
         var newButton = $("<button>").text(animals[i]);
         newButton.attr("data-name", animals[i]);
-        newButton.addClass("animal-button");
+        newButton.addClass("animal-button m-1 btn btn-primary");
         $("#animal-buttons-display").append(newButton);
     }
 
 }
 
-function addAnAnimal() {
-    userInput = $("#new-animal-input").val();
-}
+$("#submit-button").on("click", function (event) {
+    event.preventDefault();
+    var userInput = $("#new-animal-input").val().trim();
+    animals.push(userInput);
+    createAnimalButtons();
+
+});
+
+
+
+
 
 $(document).on("click", ".animal-button", function () {
     var userAnimalPressed = $(this).attr("data-name");
@@ -38,5 +46,4 @@ $(document).on("click", ".animal-button", function () {
         }
     });
 });
-
 createAnimalButtons(); 

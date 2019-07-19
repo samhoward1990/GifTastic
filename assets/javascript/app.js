@@ -39,6 +39,7 @@ $(document).on("click", ".animal-button", function () {
             var animalGifs = $("<img>");
             rating.text(results[i].rating);
             animalGifs.attr("src", results[i].images.fixed_height.url);
+            animalDiv.addClass("col-sm-4 col-md-4 col-lg-4");
             animalDiv.append(rating);
             animalDiv.append(animalGifs);
             $("#show-animal-gifs").prepend(animalDiv);

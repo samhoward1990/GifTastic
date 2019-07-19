@@ -5,7 +5,7 @@ function createAnimalButtons() {
     for (var i = 0; i < animals.length; i++) {
         var newButton = $("<button>").text(animals[i]);
         newButton.attr("data-name", animals[i]);
-        newButton.addClass("animal-buttons");
+        newButton.addClass("animal-button");
         $("#animal-buttons-display").append(newButton);
     }
 
@@ -15,7 +15,7 @@ function addAnAnimal() {
     userInput = $("#new-animal-input").val();
 }
 
-$(document).on("click", ".animal-buttons", function () {
+$(document).on("click", ".animal-button", function () {
     var userAnimalPressed = $(this).attr("data-name");
     var apiKey = "cGfWihUFPNnLurKthj8p52joUJh3kj98";
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userAnimalPressed + "&limit=10&rating=g&api_key=" + apiKey;

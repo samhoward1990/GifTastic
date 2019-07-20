@@ -38,13 +38,30 @@ $(document).on("click", ".animal-button", function () {
             var rating = $("<p>");
             var animalGifs = $("<img>");
             rating.text(results[i].rating);
-            animalGifs.attr("src", results[i].images.fixed_height.url);
+            animalGifs.attr("src", results[i].images.fixed_height_still.url);
+            animalGifs.attr("data-still", results[i].images.fixed_height_still.url);
+            animalGifs.attr("data-animate", results[i].images.fixed_height.url);
+            animalGifs.attr("data-state", "still");
+            animalGifs.addClass("gif");
             animalDiv.addClass("col-sm-4 col-md-4 col-lg-4");
             animalDiv.append(rating);
             animalDiv.append(animalGifs);
             $("#show-animal-gifs").prepend(animalDiv);
+            console.log(response);
 
         }
+        $(".gif").on("click", function () {
+            var state = $(this).attr("data-state");
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+
+            }
+            else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
+        });
     });
 });
 createAnimalButtons(); 

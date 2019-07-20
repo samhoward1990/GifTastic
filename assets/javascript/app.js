@@ -43,7 +43,7 @@ $(document).on("click", ".animal-button", function () {
             animalGifs.attr("data-animate", results[i].images.fixed_height.url);
             animalGifs.attr("data-state", "still");
             animalGifs.addClass("gif");
-            animalDiv.addClass("col-sm-4 col-md-4 col-lg-4");
+            animalDiv.addClass("col-sm-4 col-md-4 col-lg-4 img-fluid");
             animalDiv.append(rating);
             animalDiv.append(animalGifs);
             $("#show-animal-gifs").prepend(animalDiv);
